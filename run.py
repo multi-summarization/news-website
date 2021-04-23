@@ -8,5 +8,6 @@ if __name__ == '__main__':
   # run app
 if __name__ == '__main__':
   port = os.getenv('PORT')
+  port = port or 5000
   # run app
   app.run(host='0.0.0.0', port=port)
