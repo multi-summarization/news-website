@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}Blog entries{% endblock %}
+{% block title %}News Articles{% endblock %}
 
-{% block content_title %}{% if search %}Search "{{ search }}"{% else %}Blog entries{% endif %}{% endblock %}
+{% block content_title %}News Articles{% endblock %}
 
 {% block content %}
   {% for entry in object_list %}
     <h3>
-      <a href="{ url_for('detail', slug=entry.slug) }">
+      <a href="{{ url_for('detail', art_id=entry.id) }}">
         {{ entry.title }}
       </a>
     </h3>

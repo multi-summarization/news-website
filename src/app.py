@@ -34,4 +34,10 @@ def create_app(env_name):
     articles = ArticleModel.query.all()
     return render_template('index.html', object_list=articles )
 
+  @app.route('/article/<int:art_id>')
+  def detail(art_id):
+    article = ArticleModel.query.filter_by(id=art_id).one()
+    return render_template('detail.html', entry=article)
+
+
   return app
