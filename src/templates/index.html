@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Blog entries{% endblock %}
+
+{% block content_title %}{% if search %}Search "{{ search }}"{% else %}Blog entries{% endif %}{% endblock %}
+
+{% block content %}
+  {% for entry in object_list %}
+    <h3>
+      <a href="{ url_for('detail', slug=entry.slug) }">
+        {{ entry.title }}
+      </a>
+    </h3>
+  {% endfor %}
+{% endblock %}

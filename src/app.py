@@ -3,8 +3,13 @@ from flask import Flask
 from .config import app_config
 from .models import db, bcrypt
 
+from .models import ArticleModel
+
 from .views.UserView import user_api as user_blueprint
 from .views.ArticleView import article_api as article_blueprint
+
+from flask import render_template
+
 
 
 def create_app(env_name):
@@ -26,9 +31,7 @@ def create_app(env_name):
 
   @app.route('/', methods=['GET'])
   def index():
-    """
-    example endpoint
-    """
-    return 'Congratulations! Your part 2 endpoint is working'
+    articles = ArticleModel.query.all()
+    return render_template('index.html', object_list=articles )
 
   return app

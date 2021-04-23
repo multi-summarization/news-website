@@ -15,7 +15,7 @@ class Auth():
     """
     Generate Token Method
     """
-    try:
+    try:    
       payload = {
         'exp': datetime.datetime.utcnow() + datetime.timedelta(days=1),
         'iat': datetime.datetime.utcnow(),
@@ -27,6 +27,7 @@ class Auth():
         'HS256'
       ).decode("utf-8")
     except Exception as e:
+      print(e)
       return Response(
         mimetype="application/json",
         response=json.dumps({'error': 'error in generating user token'}),
