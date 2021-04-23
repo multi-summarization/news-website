@@ -7,3 +7,4 @@ bcrypt = Bcrypt()
 
 from .ArticleModel import ArticleModel, ArticleSchema
 from .UserModel import UserModel, UserSchema
+from .ClusterModel import ClusterModel, ClusterSchema

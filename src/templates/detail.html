@@ -6,4 +6,14 @@
 
 {% block content %}
   {{ entry.contents }}
+
+  <h3> Sources </h3>
+
+  {% for source in sources %}
+    <p>
+    <a href="{{ source.source_url }}">
+      {{ source.source_title }}
+    </a>
+  </p>
+  {% endfor %}
 {% endblock %}

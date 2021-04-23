@@ -12,8 +12,10 @@ def create():
   """
   Create Article Function
   """
+  print(request)
   req_data = request.get_json()
   req_data['owner_id'] = g.user.get('id')
+  print(req_data['owner_id'])
   data, error = article_schema.load(req_data)
   if error:
     return custom_response(error, 400)
